@@ -19,10 +19,15 @@ const config = {
         rules: [
             {
                 test: /\.css$/,
-                use: [
-                    {loader: 'style-loader'},
-                    {loader: 'css-loader'}
-                ]
+                // 全局样式
+                include: path.resolve(__dirname, 'src/styles'),
+                loader: 'style-loader!css-loader'
+            },
+            {
+                test: /\.css$/,
+                // 组件样式使用CSS Modules
+                exclude: path.resolve(__dirname, 'src/styles'),
+                loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]'
             },
             {
                 test: /\.(|eot|svg|ttf|woff|woff2)$/,
@@ -52,7 +57,7 @@ const config = {
     },
     resolve: {
         // 省略引入文件名后缀
-        extensions: ['.js', '.jsx', '.json']
+        extensions: ['.js', '.jsx', '.json', '.css']
     },
     devServer: {
         contentBase: './',

@@ -1,0 +1,7 @@
+.base {
+    background: green;
+}
+
+.test {
+    composes: base;
+}
