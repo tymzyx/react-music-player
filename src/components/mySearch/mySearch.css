@@ -1,0 +1,21 @@
+.search-wrapper {
+    position: relative;
+}
+
+.search-wrapper input {
+    background-color: #fff;
+    border: none;
+    height: 30px;
+    width: 140px;
+    font-size: 13px;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    border-radius: 15px;
+    padding-left: 28px;
+}
+
+.search-wrapper i {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+}
