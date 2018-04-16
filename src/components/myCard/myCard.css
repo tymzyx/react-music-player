@@ -1,0 +1,30 @@
+.card-wrapper {
+    width: 140px;
+    position: relative;
+}
+.card-wrapper img {
+    width: 140px;
+    height: 140px;
+    border-radius: 4px;
+}
+
+.card-info {
+    position: absolute;
+    width: 140px;
+    height: 30px;
+    line-height: 30px;
+    background: rgba(10, 10, 10, 0.4);
+    top: 110px;
+    display: flex;
+    justify-content: space-between;
+    color: #ddd;
+    font-size: 13px;
+}
+.card-info i {
+    margin: 0 6px;
+}
+
+.card-tag {
+    padding: 10px 0;
+    width: 100%;
+}

@@ -6,8 +6,8 @@
     background-color: #fff;
     border: none;
     height: 30px;
-    width: 140px;
-    font-size: 13px;
+    width: 142px;
+    font-size: 12px;
     outline: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     border-radius: 15px;
@@ -17,5 +17,5 @@
 .search-wrapper i {
     position: absolute;
     left: 8px;
-    top: 8px;
+    top: 6px;
 }

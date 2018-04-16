@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Route, Switch} from 'react-router-dom'
 
-import home from './pages/home'
+import home from './pages/home/home'
 import other0 from './pages/other0'
 import other1 from './pages/other1'
 
