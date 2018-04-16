@@ -9,6 +9,7 @@ import style from './home.css'
 import CommonHead from '../../components/CommonHead/CommonHead'
 import MyDivider from '../../components/myDivider/myDivider'
 import MyCard from '../../components/myCard/myCard'
+import MyDialog from '../../components/myDialog/myDialog'
 
 // semantic-ui-react
 // import { Button,Divider } from 'semantic-ui-react'
@@ -53,6 +54,12 @@ class home extends Component {
                                     </div>
                                 )}
                             </div>
+                        </div>
+                    </div>
+                    <div className={style["home-body-right"]}>
+                        <MyDialog/>
+                        <div>
+                            <MyCard url={imgUrl} size="100%" imgSize="70px" display="flex" isSingerCard="true"/>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
 }
 
 .home-body {
-    width: 900px;
+    width: 1000px;
     margin: auto;
     display: flex;
     padding-top: 20px;
@@ -58,4 +58,9 @@
 }
 .hot-card {
     margin: 30px 17.5px 4px;
+}
+
+.home-body-right {
+    flex: 1;
+    margin-left: 20px;
 }
