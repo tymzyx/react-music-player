@@ -1,0 +1,58 @@
+.player-bar-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 10, 0.8);
+    height: 46px;
+    line-height: 46px;
+}
+
+.player-bar-lock {
+    position: absolute;
+    width: 36px;
+    height: 18px;
+    line-height: 18px;
+    color: #ddd;
+    text-align: center;
+    background: rgba(10, 10, 10, 0.8);
+    top: -18px;
+    left: 1000px;
+    cursor: pointer;
+}
+.player-bar-lock i {
+    font-size: 12px;
+}
+.player-bar-lock-left {
+    content: "";
+    position: absolute;
+    border-right: 6px solid rgba(10, 10, 10, 0.8);
+    border-bottom: 9px solid rgba(10, 10, 10, 0.8);
+    border-top: 9px solid transparent;
+    border-left: 6px solid transparent;
+    left: -12px;
+    width: 0;
+}
+.player-bar-lock-right {
+    content: "";
+    position: absolute;
+    border-left: 6px solid rgba(10, 10, 10, 0.8);
+    border-bottom: 9px solid rgba(10, 10, 10, 0.8);
+    border-top: 9px solid transparent;
+    border-right: 6px solid transparent;
+    left: 36px;
+    width: 0;
+}
+
+.player-bar-main {
+    margin: auto;
+    width: 1080px;
+    display: flex;
+    line-height: 46px;
+}
+
+.player-ctrl i {
+    font-size: 26px;
+    margin: 0 4px;
+    color: #ccc;
+}

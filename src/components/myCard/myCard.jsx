@@ -28,8 +28,12 @@ class myCard extends Component {
                     </div>
                 ) : (
                     <div className={style["card-info-right"]}>
-                        <h4>张惠妹aMEI</h4>
-                        <p>台湾歌手张惠妹</p>
+                        <div>
+                            <h4>张惠妹aMEI</h4>
+                        </div>
+                        <div>
+                            <p>台湾歌手张惠妹</p>
+                        </div>
                     </div>
                 )}
             </div>

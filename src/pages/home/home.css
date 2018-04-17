@@ -1,6 +1,7 @@
 .home-wrapper {
     width: 100%;
     margin-top: 70px;
+    background: #fff;
 }
 
 .home-body {
@@ -15,36 +16,37 @@
     margin: 0 10px;
 }
 
-.home-body-hot {
+.home-body-hot, .home-body-cd {
     width: 100%;
     /*height: 400px;*/
     /*background: #666;*/
+    margin-bottom: 30px;
 }
 
-.hot-head {
+.left-module-head {
     height: 40px;
     line-height: 40px;
     display: flex;
     justify-content: space-between;
 }
-.hot-head i {
+.left-module-head i {
     color: #C20C0C;
     margin-right: 8px;
 }
-.hot-head h3 {
+.left-module-head h3 {
     margin: 0 8px 0 0;
     font-size: 20px;
     font-weight: normal;
     color: #444;
     display: inline-block;
 }
-.hot-head span {
+.left-module-head span {
     padding: 0 16px;
     border-right: 1px solid #ccc;
     font-size: 14px;
     color: #666;
 }
-.hot-head a {
+.left-module-head a {
     padding: 0 6px 0 0;
     font-size: 14px;
     color: #666;
@@ -60,7 +62,74 @@
     margin: 30px 17.5px 4px;
 }
 
+.cd-body {
+    margin: 16px 0 0 0;
+    width: 100%;
+    height: 220px;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cd-body-arrow {
+    width: 24px;
+    height: 100%;
+    display: flex;
+    text-align: center;
+}
+.cd-body-arrow i {
+    position: relative;
+    top: 90px;
+    left: 6px;
+    height: 20px;
+}
+.cd-body-main {
+    flex: 1;
+    height: 100%;
+    padding: 40px 0 10px;
+    display: flex;
+}
+.cd-card-wrapper {
+    width: 110px;
+    margin: 0 10px;
+}
+.cd-card {
+    box-shadow: 0 2px 8px #666;
+    margin-bottom: 12px;
+}
+.cd-info p {
+    margin: 0 0 4px;
+    font-size: 13px;
+}
+.cd-info span {
+    font-size: 13px;
+    color: #aaa;
+}
+
 .home-body-right {
     flex: 1;
     margin-left: 20px;
+}
+
+.home-body-right-module {
+    width: 100%;
+    margin: 12px 10px;
+}
+
+.singer-head, .dj-head {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.singer-head span {
+    font-weight: bold;
+}
+.singer-head a {
+    color: #444;
+    font-size: 13px;
+    cursor: pointer;
+}
+.singer-card, .dj-card {
+    margin: 14px 0;
 }
