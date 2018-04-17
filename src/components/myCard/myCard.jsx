@@ -9,7 +9,8 @@ class myCard extends Component {
 
     render() {
         return (
-            <div className={style["card-wrapper"]} style={{width: this.props.size, display: this.props.display}}>
+            <div className={style["card-wrapper"]} style={{width: this.props.size, display: this.props.display,
+                padding: this.props.padding}}>
                 <img src={this.props.url} style={{width: this.props.imgSize, height: this.props.imgSize}} />
                 {!this.props.isSingerCard ? (
                     <div>
@@ -27,12 +28,14 @@ class myCard extends Component {
                         </div>
                     </div>
                 ) : (
-                    <div className={style["card-info-right"]}>
+                    <div className={style["card-info-right"]} style={{background: this.props.bg}}>
                         <div>
-                            <h4>张惠妹aMEI</h4>
+                            {this.props.children ? this.props.children[0] : ('')}
+                            {/*<h4>张惠妹aMEI</h4>*/}
                         </div>
                         <div>
-                            <p>台湾歌手张惠妹</p>
+                            {this.props.children ? this.props.children[1] : ('')}
+                            {/*<p>台湾歌手张惠妹</p>*/}
                         </div>
                     </div>
                 )}
@@ -45,7 +48,9 @@ myCard.defaultProps = {
     display: 'block',
     size: '140px',
     imgSize: '140px',
-    isSingerCard: false
+    isSingerCard: false,
+    padding: '0',
+    bg: '#f3f3f3'
 };
 
 export default myCard;

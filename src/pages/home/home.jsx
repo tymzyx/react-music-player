@@ -13,12 +13,15 @@ import MyDialog from '../../components/myDialog/myDialog'
 import PlayBar from '../../components/PlayerBar/PlayerBar'
 
 // semantic-ui-react
-import { Button,Divider,Card,Image } from 'semantic-ui-react'
+import { Button,Divider,Card,Image,Table,Header } from 'semantic-ui-react'
 
 let imgUrl = require('../../assets/img/test.jpg');
 let imgAmei = require('../../assets/img/amei.jpg');
 let imgMusic = require('../../assets/img/music.jpg');
 let imgCD = require('../../assets/img/cd.jpg');
+let imgRank0 = require('../../assets/img/rank0.jpg');
+let imgRank1 = require('../../assets/img/rank1.jpg');
+let imgRank2 = require('../../assets/img/rank2.jpg');
 
 class home extends Component {
     constructor(props) {
@@ -30,6 +33,7 @@ class home extends Component {
         const singerList = new Array(1,2,1,1,1,1,1);
         const djList = new Array(1,2,3,4,5);
         const cdList = new Array(1,2,3,4,5);
+        const rankList = new Array(1,2,3,4,5,6,7,8,9,10);
 
         return (
             <div className={style["home-wrapper"]}>
@@ -100,6 +104,101 @@ class home extends Component {
                                 </div>
                             </div>
                         </div>
+                        <div className={style["home-body-rank"]}>
+                            <div className={style["left-module-head"]}>
+                                <div>
+                                    <i className="iconfont icon-paixingbang"></i>
+                                    <h3>榜单</h3>
+                                </div>
+                                <div>
+                                    <a>更多</a>
+                                    <i className="iconfont icon-arrowrightc"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <MyDivider color="#C20C0C"/>
+                            </div>
+                            <div className={style["rank-body"]}>
+                                <div className={style["rank-item"]}>
+                                    <Table celled>
+                                        <Table.Body>
+                                            <Table.Row positive={false}>
+                                                <Table.Cell>
+                                                    <MyCard url={imgRank0} size="100%" imgSize="70px" display="flex"
+                                                        isSingerCard="true" bg="#fff">
+                                                        <h4>云音乐飙升榜</h4>
+                                                        <p>
+                                                            <i className="iconfont icon-bofang"></i>
+                                                            <i className="iconfont icon-wenjianjia"></i>
+                                                        </p>
+                                                    </MyCard>
+                                                </Table.Cell>
+                                            </Table.Row>
+                                            {rankList.map((val,index) =>
+                                                <Table.Row key={index} className={style["rank-cell"]}
+                                                           positive={index%2 === 0}>
+                                                    <Table.Cell>
+                                                        <p>{index+1} &nbsp;&nbsp;<span>离人愁</span></p>
+                                                    </Table.Cell>
+                                                </Table.Row>
+                                            )}
+                                        </Table.Body>
+                                    </Table>
+                                </div>
+                                <div className={style["rank-item"]}>
+                                    <Table celled>
+                                        <Table.Body>
+                                            <Table.Row positive={false}>
+                                                <Table.Cell>
+                                                    <MyCard url={imgRank1} size="100%" imgSize="70px" display="flex"
+                                                        isSingerCard="true" bg="#fff">
+                                                        <h4>云音乐新歌榜</h4>
+                                                        <p>
+                                                            <i className="iconfont icon-bofang"></i>
+                                                            <i className="iconfont icon-wenjianjia"></i>
+                                                        </p>
+                                                    </MyCard>
+                                                </Table.Cell>
+                                            </Table.Row>
+                                            {rankList.map((val,index) =>
+                                                <Table.Row key={index} className={style["rank-cell"]}
+                                                           positive={index%2 === 0}>
+                                                    <Table.Cell>
+                                                        <p>{index+1} &nbsp;&nbsp;<span>离人愁</span></p>
+                                                    </Table.Cell>
+                                                </Table.Row>
+                                            )}
+                                        </Table.Body>
+                                    </Table>
+                                </div>
+                                <div className={style["rank-item"]}>
+                                    <Table celled>
+                                        <Table.Body>
+                                            <Table.Row positive={false}>
+                                                <Table.Cell>
+                                                    <MyCard url={imgRank2} size="100%" imgSize="70px" display="flex"
+                                                        isSingerCard="true" bg="#fff">
+                                                        <h4>网易原创歌曲榜</h4>
+                                                        <p>
+                                                            <i className="iconfont icon-bofang"></i>
+                                                            <i className="iconfont icon-wenjianjia"></i>
+                                                        </p>
+                                                    </MyCard>
+                                                </Table.Cell>
+                                            </Table.Row>
+                                            {rankList.map((val,index) =>
+                                                <Table.Row key={index} className={style["rank-cell"]}
+                                                           positive={index%2 === 0}>
+                                                    <Table.Cell>
+                                                        <p>{index+1} &nbsp;&nbsp;<span>离人愁</span></p>
+                                                    </Table.Cell>
+                                                </Table.Row>
+                                            )}
+                                        </Table.Body>
+                                    </Table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className={style["home-body-right"]}>
                         <MyDialog/>
@@ -112,7 +211,10 @@ class home extends Component {
                             {singerList.map((val,index) =>
                                 <div className={style["singer-card"]} key={index}>
                                     <MyCard url={imgAmei} size="100%" imgSize="78px" display="flex"
-                                            isSingerCard="true"/>
+                                            isSingerCard="true">
+                                        <h4>张惠妹aMEI</h4>
+                                        <p>台湾歌手张惠妹</p>
+                                    </MyCard>
                                 </div>
                             )}
                             <Button content="申请成为网易音乐人" basic fluid/>
@@ -125,10 +227,39 @@ class home extends Component {
                             {djList.map((val,index) =>
                                 <div className={style["dj-card"]} key={index}>
                                     <MyCard url={imgMusic} size="100%" imgSize="58px" display="flex"
-                                            isSingerCard="true"/>
+                                            isSingerCard="true">
+                                        <span>陈立</span>
+                                        <p>心理学家、美食家陈立教授</p>
+                                    </MyCard>
                                 </div>
                             )}
                         </div>
+                    </div>
+                </div>
+                <div className={style["home-foot"]}>
+                    <div className={style["foot-main"]}>
+                        <div className={style["foot-left"]}>
+                            <div>
+                                <a>关于网易</a>&nbsp; | &nbsp;
+                                <a>客户服务</a>&nbsp; | &nbsp;
+                                <a>服务条款</a>&nbsp; | &nbsp;
+                                <a>网站导航</a>&nbsp; | &nbsp;
+                                <a>意见反馈</a>
+                            </div>
+                            <div>
+                                <span>
+                                    网易公司版权所有@1997-2018&nbsp;&nbsp;
+                                    杭州乐读科技有限公司运营：浙网文[2015] 0415-135号
+                                </span>
+                            </div>
+                            <div>
+                                <span>
+                                    违法和不良信息举报电话：0571-89853516&nbsp;&nbsp;
+                                    举报邮箱：cloudmusicservice@163.com
+                                </span>
+                            </div>
+                        </div>
+                        <div className={style["foot-right"]}></div>
                     </div>
                 </div>
                 <PlayBar/>

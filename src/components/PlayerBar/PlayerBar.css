@@ -1,6 +1,6 @@
 .player-bar-wrapper {
     position: fixed;
-    bottom: 0;
+    bottom: -46px;
     left: 0;
     right: 0;
     background: rgba(10, 10, 10, 0.8);
@@ -17,8 +17,13 @@
     text-align: center;
     background: rgba(10, 10, 10, 0.8);
     top: -18px;
-    left: 1000px;
+    left: 92%;
     cursor: pointer;
+}
+@media all and (max-width: 1080px) {
+    .player-bar-lock {
+        left: 900px;
+    }
 }
 .player-bar-lock i {
     font-size: 12px;

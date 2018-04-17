@@ -9,7 +9,7 @@ class playerBar extends Component {
         super(props);
 
         this.state = {
-            isLock: true,
+            isLock: false,
         };
 
         this.toggleLock = this.toggleLock.bind(this);

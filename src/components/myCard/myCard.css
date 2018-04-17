@@ -1,6 +1,7 @@
 .card-wrapper {
     width: 140px;
     position: relative;
+    box-sizing: border-box;
 }
 .card-wrapper img {
     width: 140px;
@@ -45,7 +46,16 @@
 .card-info-right h4 {
     margin: 0;
 }
+.card-info-right span {
+    font-weight: bold;
+}
 .card-info-right p {
     margin: 0;
     align-self: flex-start;
+    color: #666;
+}
+.card-info-right i {
+    color: #aaa;
+    margin-right: 8px;
+    font-size: 20px;
 }
