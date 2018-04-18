@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import classNames from 'classnames'
+import $ from 'jquery'
 
 import {connect} from 'react-redux'
 import {testAction} from '../../store/test/action'
@@ -11,6 +12,7 @@ import MyDivider from '../../components/myDivider/myDivider'
 import MyCard from '../../components/myCard/myCard'
 import MyDialog from '../../components/myDialog/myDialog'
 import PlayBar from '../../components/PlayerBar/PlayerBar'
+import MyRoll from '../../components/myRoll/myRoll'
 
 // semantic-ui-react
 import { Button,Divider,Card,Image,Table,Header } from 'semantic-ui-react'
@@ -22,22 +24,87 @@ let imgCD = require('../../assets/img/cd.jpg');
 let imgRank0 = require('../../assets/img/rank0.jpg');
 let imgRank1 = require('../../assets/img/rank1.jpg');
 let imgRank2 = require('../../assets/img/rank2.jpg');
+let imgBoard = require('../../assets/img/board.jpg');
 
 class home extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            cdIndex: 0,
+        };
+
+        this.plusCD = this.plusCD.bind(this);
+        this.minusCD = this.minusCD.bind(this);
     }
+
+    plusCD() {
+        if (this.state.cdIndex === 4) {
+            return;
+        }
+
+        let cdDom = $("#cd-card-content");
+        let moveX = (this.state.cdIndex + 1) * 130;
+        cdDom.animate({
+            marginLeft: `-${moveX}px`
+        }, 300, 'linear', function () {
+            console.log(moveX);
+            cdDom.css({
+                marginLeft: `-${moveX}px`
+            })
+        });
+
+        this.setState(prevState => ({
+            cdIndex: prevState.cdIndex + 1
+        }));
+    }
+    minusCD() {
+        if (this.state.cdIndex === 0) {
+            return;
+        }
+
+        let cdDom = $("#cd-card-content");
+        let moveX = (this.state.cdIndex - 1) * 130;
+        cdDom.animate({
+            marginLeft: `-${moveX}px`
+        }, 300, 'linear', function () {
+            console.log(moveX);
+            cdDom.css({
+                marginLeft: `-${moveX}px`
+            })
+        });
+
+        this.setState(prevState => ({
+            cdIndex: prevState.cdIndex - 1
+        }));
+    }
+
     render() {
         const songType = ['华语', '流行', '摇滚', '民谣', '电子'];
         const cardList = new Array(1,2,3,4,5,6,7,8,9,0,1,2,3,4);
         const singerList = new Array(1,2,1,1,1,1,1);
         const djList = new Array(1,2,3,4,5);
-        const cdList = new Array(1,2,3,4,5);
+        const cdList = new Array(1,2,3,4,5,6,7,8,9,10);
         const rankList = new Array(1,2,3,4,5,6,7,8,9,10);
+        const boardList = new Array(1,2,3,4,5,6)
 
         return (
             <div className={style["home-wrapper"]}>
                 <CommonHead></CommonHead>
+                <div className={style["home-board"]}>
+                    <div className={style["home-board-main"]}>
+                        <MyRoll isExtra={true} domId="board-img-container" displayTotal={boardList.length}>
+                            <div className={style["board-img-container"]} id="board-img-container">
+                                {boardList.map((val,index) =>
+                                    <div className={style["board-img-wrapper"]} key={index}>
+                                        <Image src={imgBoard} fluid/>
+                                    </div>
+                                )}
+                            </div>
+                            <div className={style["board-extra"]}></div>
+                        </MyRoll>
+                    </div>
+                </div>
                 <div className={style["home-body"]}>
                     <div className={style["home-body-left"]}>
                         <div className={style["home-body-hot"]}>
@@ -81,26 +148,31 @@ class home extends Component {
                                 <MyDivider color="#C20C0C"/>
                             </div>
                             <div className={style["cd-body"]}>
-                                <div className={style["cd-body-arrow"]}>
-                                    <i className="iconfont icon-arrowleft"></i>
+                                <div className={classNames({[style['cd-body-arrow']]: true,
+                                         [style['cd-body-arrow--disabled']]: this.state.cdIndex === 0})} >
+                                    <i className="iconfont icon-arrowleft" onClick={this.minusCD}></i>
                                 </div>
                                 <div className={style["cd-body-main"]}>
-                                    {cdList.map((val,index) =>
-                                        <div key={index} className={style["cd-card-wrapper"]}>
-                                            <div className={style["cd-card"]}>
-                                                <Card>
-                                                    <Image src={imgCD} />
-                                                </Card>
+                                    <div className={style["cd-card-content"]} id="cd-card-content">
+                                        {cdList.map((val,index) =>
+                                            <div key={index} className={style["cd-card-wrapper"]}>
+                                                <div className={style["cd-card"]}>
+                                                    <Card>
+                                                        <Image src={imgCD} />
+                                                    </Card>
+                                                </div>
+                                                <div className={style["cd-info"]}>
+                                                    <p>Let Me</p>
+                                                    <span>ZAYN</span>
+                                                </div>
                                             </div>
-                                            <div className={style["cd-info"]}>
-                                                <p>Let Me</p>
-                                                <span>ZAYN</span>
-                                            </div>
-                                        </div>
-                                    )}
+                                        )}
+                                    </div>
                                 </div>
-                                <div className={style["cd-body-arrow"]}>
-                                    <i className="iconfont icon-arrowright"></i>
+                                <div className={classNames({[style['cd-body-arrow']]: true,
+                                         [style['cd-body-arrow--disabled']]: this.state.cdIndex === 4})} >
+                                    <i className="iconfont icon-arrowright" onClick={this.plusCD} >
+                                    </i>
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,37 @@
+.roll-wrapper {
+    display: flex;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+
+.roll-arrow {
+    width: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.roll-arrow i {
+    cursor: pointer;
+}
+.roll-arrow--disabled {
+    color: #ddd;
+}
+.roll-arrow--disabled i {
+    cursor: not-allowed !important;
+}
+
+.roll-item-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 680px;
+}
+
+.roll-selector {
+    position: absolute;
+}
+
+.roll-extra {
+    flex: 1;
+}

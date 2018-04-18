@@ -4,6 +4,32 @@
     background: #fff;
 }
 
+.home-board {
+    width: 100%;
+    height: 320px;
+    background: #242424;
+    border-top: 1px solid #C20C0C;
+}
+.home-board-main {
+    width: 1120px;
+    height: 100%;
+    margin: auto;
+}
+.board-img-container {
+    width: 4200px;
+}
+.board-img-wrapper {
+    height: 320px;
+    width: 680px;
+    display: inline-block;
+}
+.board-extra {
+    width: 320px;
+    height: 318px;
+    box-sizing: border-box;
+    background: #444444;
+}
+
 .home-body {
     width: 1012px;
     margin: auto;
@@ -87,11 +113,22 @@
     top: 90px;
     left: 6px;
     height: 20px;
+    cursor: pointer;
+}
+.cd-body-arrow--disabled {
+    color: #ddd;
+}
+.cd-body-arrow--disabled i {
+    cursor: not-allowed !important;
 }
 .cd-body-main {
     flex: 1;
+    width: 650px;
     height: 100%;
     padding: 40px 0 10px;
+    overflow: hidden;
+}
+.cd-card-content {
     display: flex;
 }
 .cd-card-wrapper {

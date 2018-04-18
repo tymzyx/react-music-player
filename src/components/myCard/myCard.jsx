@@ -30,11 +30,11 @@ class myCard extends Component {
                 ) : (
                     <div className={style["card-info-right"]} style={{background: this.props.bg}}>
                         <div>
-                            {this.props.children ? this.props.children[0] : ('')}
+                            {this.props.children ? this.props.children[0] : null}
                             {/*<h4>张惠妹aMEI</h4>*/}
                         </div>
                         <div>
-                            {this.props.children ? this.props.children[1] : ('')}
+                            {this.props.children ? this.props.children[1] : null}
                             {/*<p>台湾歌手张惠妹</p>*/}
                         </div>
                     </div>
@@ -48,7 +48,7 @@ myCard.defaultProps = {
     display: 'block',
     size: '140px',
     imgSize: '140px',
-    isSingerCard: false,
+    isSingerCard: false,  // 是否是user卡片(左右布局)
     padding: '0',
     bg: '#f3f3f3'
 };

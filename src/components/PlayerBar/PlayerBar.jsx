@@ -25,7 +25,8 @@ class playerBar extends Component {
                 duration: '00:00',
                 currentInt: 0,
                 durationInt: 10
-            }
+            },
+            canPlay: false,
         };
 
         this.toggleLock = this.toggleLock.bind(this);
@@ -46,8 +47,6 @@ class playerBar extends Component {
         //         time: prevState.time + 1
         //     }))
         // }, 500);
-
-        console.log(this.refs)
     }
 
     toggleLock() {
@@ -60,10 +59,15 @@ class playerBar extends Component {
         this.setState(prevState => ({
             progressParams: Object.assign({}, prevState.progressParams, {currentInt: val})
         }));
+        console.log(val)
+        this.refs.myPlayer.currentTime = val;
     }
 
     audioInit() {
-        console.log(this.refs.myPlayer.duration);
+        if (this.state.canPlay) {
+            return;
+        }
+
         let player = this.refs.myPlayer;
         let durationInt = Math.floor(player.duration);
         let initParams = {
@@ -75,6 +79,10 @@ class playerBar extends Component {
         this.setState(prevState => ({
             progressParams: Object.assign({}, prevState.progressParams, initParams)
         }));
+
+        this.setState({
+            canPlay: true
+        })
     }
     playMusic() {
         let playing = setInterval(this.getCurrent, 500);
