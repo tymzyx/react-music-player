@@ -30,6 +30,21 @@
 
 .roll-selector {
     position: absolute;
+    display: flex;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.selector {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: #aaa;
+    cursor: pointer;
+    margin: 0 8px;
+}
+.selector-selected {
+    background: #fff;
 }
 
 .roll-extra {

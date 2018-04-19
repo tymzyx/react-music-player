@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import classNames from 'classnames'
 
 import style from './myRoll.css'
 import $ from "jquery";
@@ -13,39 +14,34 @@ class MyRoll extends Component {
 
         this.plus = this.plus.bind(this);
         this.minus = this.minus.bind(this);
+        this.switchSelect = this.switchSelect.bind(this);
+        this.animate = this.animate.bind(this);
     }
 
     componentDidMount() {
         console.log(this.props.children);
     }
 
+    switchSelect(index) {
+        this.animate(index)
+    }
     plus() {
         if (this.state.currentIndex === this.props.displayTotal - 1) {
             return;
         }
 
-        let dom = $('#' + this.props.domId);
-        let moveX = (this.state.currentIndex + 1) * 680;
-        dom.animate({
-            marginLeft: `-${moveX}px`
-        }, 300, 'linear', function () {
-            console.log(moveX);
-            dom.css({
-                marginLeft: `-${moveX}px`
-            })
-        });
-
-        this.setState(prevState => ({
-            currentIndex: prevState.currentIndex + 1
-        }));
+        this.animate(this.state.currentIndex + 1);
     }
     minus() {
         if (this.state.currentIndex === 0) {
             return;
         }
 
+        this.animate(this.state.currentIndex - 1);
+    }
+    animate(index) {
         let dom = $('#' + this.props.domId);
-        let moveX = (this.state.currentIndex - 1) * 680;
+        let moveX = index * 680;
         dom.animate({
             marginLeft: `-${moveX}px`
         }, 300, 'linear', function () {
@@ -55,9 +51,9 @@ class MyRoll extends Component {
             })
         });
 
-        this.setState(prevState => ({
-            currentIndex: prevState.currentIndex - 1
-        }));
+        this.setState({
+            currentIndex: index
+        });
     }
 
     render() {
@@ -70,6 +66,13 @@ class MyRoll extends Component {
                 <div className={style["roll-item-wrapper"]}>
                     {this.props.children ? (this.props.children.length ? this.props.children[0] : this.props.children) : null}
                     <div className={style["roll-selector"]}>
+                        {((new Array(this.props.displayTotal)).fill(0)).map((val,index) =>
+                            <div key={index} onClick={this.switchSelect.bind(this,index)}
+                                 className={classNames({
+                                     [style.selector]: true,
+                                     [style["selector-selected"]]: index === this.state.currentIndex})
+                                 }></div>
+                        )}
                     </div>
                 </div>
                 {this.props.isExtra ? (
