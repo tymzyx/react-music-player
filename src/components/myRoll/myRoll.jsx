@@ -61,7 +61,8 @@ class MyRoll extends Component {
             <div className={style["roll-wrapper"]}>
                 <div className={style["roll-arrow"]}>
                     <i className="iconfont icon-arrowleft" onClick={this.minus}
-                       style={{color: this.props.styles.arrowColor, fontSize: this.props.styles.arrowSize}}></i>
+                       style={{color: this.props.styles.arrowColor, fontSize: this.props.styles.arrowSize}}>
+                    </i>
                 </div>
                 <div className={style["roll-item-wrapper"]}>
                     {this.props.children ? (this.props.children.length ? this.props.children[0] : this.props.children) : null}
@@ -71,7 +72,8 @@ class MyRoll extends Component {
                                  className={classNames({
                                      [style.selector]: true,
                                      [style["selector-selected"]]: index === this.state.currentIndex})
-                                 }></div>
+                                 }>
+                            </div>
                         )}
                     </div>
                 </div>
@@ -82,7 +84,8 @@ class MyRoll extends Component {
                 ) : null}
                 <div className={style["roll-arrow"]}>
                     <i className="iconfont icon-arrowright" onClick={this.plus}
-                       style={{color: this.props.styles.arrowColor, fontSize: this.props.styles.arrowSize}}></i>
+                       style={{color: this.props.styles.arrowColor, fontSize: this.props.styles.arrowSize}}>
+                    </i>
                 </div>
             </div>
         )
