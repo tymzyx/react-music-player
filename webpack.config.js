@@ -62,6 +62,10 @@ const config = {
                 query: {
                     presets: ['react', 'es2015']
                 }
+            },
+            {
+                test: /\.html$/,
+                loader: 'file-loader'
             }
         ]
     },
