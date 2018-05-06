@@ -1,0 +1,13 @@
+.dialog-wrapper {
+    background: linear-gradient(to bottom, #F5F5F5, #DCDCDC);
+    width: 260px;
+    height: 160px;
+    text-align: center;
+}
+
+.dialog-text {
+    text-align: left;
+    padding: 26px 20px 14px;
+    line-height: 22px;
+    color: #333;
+}

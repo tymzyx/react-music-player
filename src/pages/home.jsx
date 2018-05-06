@@ -5,7 +5,7 @@ import style from './t0.css'
 import {connect} from 'react-redux'
 import {testAction} from '../store/test/action'
 
-// import CommonHead from '../components/common/commonHead/CommonHead'
+import CommonHead from '../components/CommonHead/CommonHead'
 
 class home extends Component {
     constructor(props) {
@@ -18,9 +18,9 @@ class home extends Component {
     render() {
         return (
             <div className={style.test}>
-                <p>i am home, {this.props.testData.value0}, {this.props.testData.value1}</p>
-                <button type="button" onClick={this.test}>click me</button>
-                {/*<common-head></common-head>*/}
+                <CommonHead></CommonHead>
+                {/*<p>i am home, {this.props.testData.value0}, {this.props.testData.value1}</p>*/}
+                {/*<button type="button" onClick={this.test}>click me</button>*/}
             </div>
         )
     }

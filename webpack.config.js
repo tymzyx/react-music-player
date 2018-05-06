@@ -26,8 +26,18 @@ const config = {
             {
                 test: /\.css$/,
                 // 组件样式使用CSS Modules
-                exclude: path.resolve(__dirname, 'src/styles'),
+                exclude: [
+                    path.resolve(__dirname, 'src/styles'),
+                    path.resolve(__dirname, 'node_modules')
+                ],
                 loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]'
+            },
+            {
+                test: /\.css$/,
+                include: [
+                    path.resolve(__dirname, 'node_modules')
+                ],
+                loader: 'style-loader!css-loader'
             },
             {
                 test: /\.(|eot|svg|ttf|woff|woff2)$/,
